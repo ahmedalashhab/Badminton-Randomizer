@@ -67,23 +67,39 @@ export default function CourtSetup({
           Number of Courts
         </label>
         <div className="flex items-center gap-4">
-          <input
-            type="range"
-            min="1"
-            max={maxPossibleCourts}
-            value={numCourts}
-            onChange={handleCourtChange}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-            style={{
-              WebkitAppearance: 'none',
-              appearance: 'none',
-              background: 'transparent',
-              cursor: 'pointer',
-            }}
-          />
-          <span className="text-lg font-medium text-gray-900 dark:text-white min-w-[2rem] text-center">
-            {numCourts}
-          </span>
+          <div className="flex items-center gap-2">
+            <input
+              type="number"
+              min="1"
+              max={maxPossibleCourts}
+              value={numCourts}
+              onChange={(e) => {
+                const value = Math.min(Math.max(1, parseInt(e.target.value) || 1), maxPossibleCourts);
+                setNumCourts(value);
+              }}
+              className="w-20 px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800"
+            />
+            <div className="flex flex-col gap-1">
+              <button
+                onClick={() => setNumCourts(Math.min(numCourts + 1, maxPossibleCourts))}
+                className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+                disabled={numCourts >= maxPossibleCourts}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setNumCourts(Math.max(1, numCourts - 1))}
+                className="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+                disabled={numCourts <= 1}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
           Maximum possible courts: {maxPossibleCourts}

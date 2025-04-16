@@ -1,6 +1,9 @@
 export interface Player {
   id: string;
   name: string;
+  isSittingOut?: boolean;
+  matchesPlayed: number;
+  partners: string[];
 }
 
 export interface Match {

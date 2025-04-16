@@ -150,9 +150,9 @@ function App() {
               setNumCourts={setNumCourts}
               players={players}
               currentRound={currentRound}
-              setCurrentRound={setCurrentRound}
               matches={matches}
               setMatches={setMatches}
+              setCurrentRound={setCurrentRound}
               onGenerateMatches={() => generateNewRound('courts')}
             />
           </div>

@@ -9,7 +9,7 @@ export default function CourtSetup({
   setCurrentRound,
   setMatches,
   onGenerateMatches
-}: Omit<CourtSetupProps, 'matches'>) {
+}: CourtSetupProps) {
   const [sittingOut, setSittingOut] = useState<Player[]>([])
 
   const activePlayers = players.filter(p => !sittingOut.includes(p))

@@ -15,11 +15,6 @@ export default function CourtSetup({
   const activePlayers = players.filter(p => !sittingOut.includes(p))
   const maxPossibleCourts = Math.floor(activePlayers.length / 4)
 
-  const handleCourtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value)
-    setNumCourts(value)
-  }
-
   const handleGenerateMatches = () => {
     if (activePlayers.length < 4) {
       alert('Need at least 4 active players to generate matches')

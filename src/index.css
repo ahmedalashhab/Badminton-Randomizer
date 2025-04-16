@@ -24,24 +24,4 @@
   .input {
     @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-800;
   }
-
-  input[type="range"] {
-    @apply appearance-none h-2 bg-gray-200 rounded-lg;
-  }
-
-  input[type="range"]::-webkit-slider-thumb {
-    @apply appearance-none w-4 h-4 rounded-full bg-blue-500 cursor-pointer -mt-1;
-  }
-
-  input[type="range"]::-moz-range-thumb {
-    @apply appearance-none w-4 h-4 rounded-full bg-blue-500 cursor-pointer border-0;
-  }
-
-  input[type="range"]::-webkit-slider-runnable-track {
-    @apply appearance-none h-2 bg-gray-200 rounded-lg;
-  }
-
-  input[type="range"]::-moz-range-track {
-    @apply appearance-none h-2 bg-gray-200 rounded-lg;
-  }
 }

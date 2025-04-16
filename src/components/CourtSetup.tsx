@@ -7,10 +7,9 @@ export default function CourtSetup({
   players,
   currentRound,
   setCurrentRound,
-  matches,
   setMatches,
   onGenerateMatches
-}: CourtSetupProps) {
+}: Omit<CourtSetupProps, 'matches'>) {
   const [sittingOut, setSittingOut] = useState<Player[]>([])
 
   const activePlayers = players.filter(p => !sittingOut.includes(p))
@@ -46,7 +45,7 @@ export default function CourtSetup({
 
     setMatches(newMatches)
     setCurrentRound(currentRound + 1)
-    onGenerateMatches() // Switch to matches tab
+    onGenerateMatches()
   }
 
   const toggleSittingOut = (player: Player) => {
@@ -113,8 +112,8 @@ export default function CourtSetup({
               key={player.id}
               onClick={() => toggleSittingOut(player)}
               className={`p-3 rounded-lg cursor-pointer transition-colors ${sittingOut.includes(player)
-                  ? 'bg-red-100 dark:bg-red-900 text-red-900 dark:text-red-100'
-                  : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
+                ? 'bg-red-100 dark:bg-red-900 text-red-900 dark:text-red-100'
+                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
             >
               {player.name}

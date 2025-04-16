@@ -1,9 +1,9 @@
+export type Tab = 'players' | 'courts' | 'matches'
+
 export interface Player {
   id: string
   name: string
-  isSittingOut: boolean
-  matchesPlayed: number
-  partners: string[] // Array of player IDs
+  isSittingOut?: boolean
 }
 
 export interface Match {
@@ -20,13 +20,14 @@ export interface CourtSetupProps {
   setCurrentRound: (round: number) => void
   matches: Match[]
   setMatches: (matches: Match[]) => void
+  onGenerateMatches: () => void
+}
+
+export interface MatchDisplayProps {
+  matches: Match[]
 }
 
 export interface PlayerManagementProps {
   players: Player[]
   setPlayers: (players: Player[]) => void
-}
-
-export interface MatchDisplayProps {
-  matches: Match[]
 } 
